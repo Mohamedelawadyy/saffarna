@@ -19,5 +19,4 @@ export default function Home() {
   );
 }
 
-// json-server --watch db.json --port 9000
-// the in mate
+
