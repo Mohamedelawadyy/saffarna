@@ -1,0 +1,68 @@
+.section-title {
+  position: relative;
+}
+.section-title span {
+  background: #f9461d;
+  height: 7px;
+  width: 7px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  border-radius: 50%;
+}
+.section-title span::after {
+  position: absolute;
+  content: "";
+  background: #f9461d;
+  height: 7px;
+  width: 7px;
+  left: 13px;
+  top: 0;
+  border-radius: 50%;
+}
+.section-title span:before {
+  position: absolute;
+  content: "";
+  background: #f9461d;
+  height: 7px;
+  width: 7px;
+  right: 13px;
+  top: 0;
+  border-radius: 50%;
+}
+
+.tour-package-card {
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  height: 100% !important;
+}
+.tour-package-card .card-price {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+.tour-package-card .discover-btn {
+  position: absolute;
+  left: -50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  color: white;
+  opacity: 0.7;
+  border: none;
+  transition: 0.3s;
+}
+.tour-package-card:hover .discover-btn {
+  left: 50%;
+}
+.discover-btn:hover {
+  opacity: 1;
+}

@@ -1,0 +1,33 @@
+section.packages header {
+  background-color: var(--Alice-Blue);
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+section.packages header h1.title-section {
+  text-shadow: 0.8px 0.8px var(--gray);
+}
+section.packages input {
+  margin: 0 10px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  outline: none;
+  transition: all 0.5s;
+}
+
+section.packages input:focus {
+  border: 1px solid var(--gray);
+}
+
+section.packages button {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  transition: 0.3s;
+}
+section.packages button:hover {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  opacity: 0.8;
+}

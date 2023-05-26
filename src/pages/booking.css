@@ -1,0 +1,11 @@
+section.booking-section input {
+  margin: 0 10px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  outline: none;
+  transition: all 0.5s;
+}
+section.booking-section input:focus {
+  border: 1px solid var(--gray);
+}

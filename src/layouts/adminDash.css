@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;400;700&family=Playfair+Display:ital,wght@0,800;1,400;1,600&family=Poppins:wght@200;600&family=Satisfy&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primary-color: #f9461d;
+  --second-white: #eef1f2;
+  --Alice-Blue: #f1f6f9;
+  --gray: #666;
+}
+ul {
+  list-style: none;
+}
+body {
+  margin: 0;
+  font-family: "League Spartan", sans-serif;
+  font-family: "Playfair Display", serif;
+  font-family: "Poppins", sans-serif;
+}
+
+aside {
+  background-color: rgba(211, 211, 211, 0.521);
+  padding: 12px 15px;
+  height: 100vh;
+  max-width: 100%;
+  width: 100%;
+}
+@media (max-width: 676px) {
+  aside {
+    height: auto;
+    width: 100% !important;
+    margin: auto;
+    padding: 10px;
+  }
+}
+@media (max-width: 934px) {
+  aside {
+    height: 100vh;
+    width: 100% !important;
+    margin: auto;
+    padding-left: 20px;
+  }
+  aside .aside-content {
+    max-width: 100%;
+  }
+  aside ul {
+    padding: 10px;
+    max-width: 100%;
+    margin: auto;
+  }
+}
+main {
+  max-width: 100%;
+}
+
+aside .aside-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+}
+aside .aside-content h5 {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #77777725;
+}
+aside a {
+  text-decoration: none;
+  color: var(--gray);
+  transition: 0.3s;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+aside a:hover {
+  margin-left: 3px;
+  color: var(--primary-color);
+}
+aside a span {
+  margin-left: 7px;
+}
+.featured-info {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.featured-item {
+  flex: 1;
+  margin: 0 20px;
+  padding: 30px;
+  border-radius: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.featured-title {
+  font-size: 20px;
+}
+.featured-money-container {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.featured-money {
+  font-size: 30px;
+  font-weight: bold;
+}
+.featured-rate {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.featured-icon {
+  font-style: 14px;
+  margin-left: 5px;
+  color: green;
+}
+
+.featured-icon.negative {
+  color: red;
+}
+.featured-sub {
+  color: gray;
+  font-style: 15px;
+}
+
+.users-table {
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+form.update-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+.update-form input[type="text"],
+.update-form input[type="password"],
+.update-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.update-form button[type="submit"] {
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+.update-form span.error {
+  display: block;
+  color: #f00;
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+input {
+  margin: 0 10px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  outline: none;
+  transition: all 0.5s;
+}
+input:focus {
+  border: 1px solid var(--gray);
+}
+
+main.packages table {
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.788);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.836);
+}

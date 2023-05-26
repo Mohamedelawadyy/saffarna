@@ -1,0 +1,10 @@
+section.user-booking table {
+  box-shadow: 0px 0px 35px 0px #dddddd;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  color: var(--gray);
+  text-transform: capitalize;
+}
+
+section.user-booking h3 {
+  text-transform: uppercase;
+}

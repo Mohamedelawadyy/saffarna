@@ -1,0 +1,15 @@
+.navbar-brand {
+  width: auto;
+}
+
+.navbar-brand img {
+  width: 200px;
+}
+
+.navbar {
+  text-transform: capitalize;
+}
+
+.navbar a {
+  font-weight: bold;
+}
