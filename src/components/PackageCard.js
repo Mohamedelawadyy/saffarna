@@ -55,7 +55,7 @@ export default function PackageCard({ data }) {
   };
   return data.map((item) => (
     <>
-      <Col key={item.country}>
+      <Col key={Math.random()}>
         <Card
           data-aos="fade-left"
           data-aos-duration="4500"

@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import "./index.css";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Contact() {
   useEffect(() => {
