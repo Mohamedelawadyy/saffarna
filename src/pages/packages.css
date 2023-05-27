@@ -1,3 +1,8 @@
+section.packages {
+  max-width: 100%;
+  overflow: hidden;
+}
+
 section.packages header {
   background-color: var(--Alice-Blue);
   color: var(--primary-color);
@@ -15,6 +20,7 @@ section.packages input {
   border: 1px solid var(--primary-color);
   outline: none;
   transition: all 0.5s;
+  margin-bottom: 5px;
 }
 
 section.packages input:focus {

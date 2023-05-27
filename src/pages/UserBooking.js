@@ -147,7 +147,7 @@ export default function UserBooking() {
                   {" "}
                   Fligth Board
                 </h1>
-                <Table striped bordered hover>
+                <Table responsive striped bordered hover>
                   <thead>
                     <tr>
                       <th>Booking Air Line</th>
@@ -163,14 +163,14 @@ export default function UserBooking() {
                   <tbody>
                     {data.map((item) => (
                       <tr key={Math.random()}>
-                        <td>{item.company}</td>
-                        <td>{item.departureTime}</td>
-                        <td>{item.arrivalTime}</td>
-                        <td>{item.destinationFrom}</td>
-                        <td>{item.destinationTo}</td>
-                        <td>{item.price}</td>
-                        <td>
-                          <div className="d-flex fs-5 fw-bold gap-2 align-items-center">
+                        <td data-label="company">{item.company}</td>
+                        <td data-label="Departure Time">{item.departureTime}</td>
+                        <td data-label="arrival Time">{item.arrivalTime}</td>
+                        <td data-label="destination From">{item.destinationFrom}</td>
+                        <td data-label="destination To">{item.destinationTo}</td>
+                        <td data-label="Price$">{item.price}</td>
+                        <td data-label="quantaty">
+                          <div className="group-btn d-flex fs-5 fw-bold gap-2 align-items-center">
                             <Button
                               onClick={() => handleQuantatyInFlight(item)}
                             >
@@ -182,7 +182,7 @@ export default function UserBooking() {
                             </Button>{" "}
                           </div>
                         </td>
-                        <td>
+                        <td data-label="Action">
                           <Button
                             variant="danger"
                             onClick={() => deleteHandlerFlight(item.id)}
@@ -201,11 +201,10 @@ export default function UserBooking() {
             {packageUser.length !== 0 ? (
               <>
                 <h2 className="text-center text-uppercase p-3">your Package</h2>
-                <Table striped bordered hover>
+                <Table responsive striped bordered hover>
                   <thead>
                     <tr>
                       <th>country</th>
-                      <th>description</th>
                       <th>days</th>
                       <th>nights</th>
                       <th>Price$</th>
@@ -216,13 +215,12 @@ export default function UserBooking() {
                   <tbody>
                     {packageUser.map((item) => (
                       <tr key={Math.random()}>
-                        <td>{item.country}</td>
-                        <td>{item.description}</td>
-                        <td>{item.days}</td>
-                        <td>{item.nights}</td>
-                        <td>{item.price}</td>
-                        <td>
-                          <div className="d-flex fs-5 gap-2 fw-bold justify-content-between align-items-center w-100 h-100">
+                        <td data-label="country">{item.country}</td>
+                        <td data-label="days">{item.days}</td>
+                        <td data-label="nights">{item.nights}</td>
+                        <td data-label="Price$">{item.price}</td>
+                        <td data-label="quantaty">
+                          <div className="group-btn d-flex fs-5 gap-2 fw-bold justify-content-between align-items-center w-100 h-100">
                             <Button
                               onClick={() => handleQuantatyInPackage(item)}
                             >
@@ -234,7 +232,7 @@ export default function UserBooking() {
                             </Button>
                           </div>
                         </td>
-                        <td>
+                        <td data-label="action">
                           <Button
                             variant="danger"
                             onClick={() => deleteHandlerPackages(item.id)}

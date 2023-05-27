@@ -17,11 +17,11 @@ export default function About() {
     <section className="about-section" id="about">
       <Container>
         <Row>
-          <Col sx="12" lg="5">
+          <Col className="mx-auto" sx="12" lg="5">
             <div
-              data-aos="fade-right"
+              data-aos="zoom-in"
               data-aos-duration="4500"
-              className="widget-container position-relative"
+              className="widget-container mx-auto  position-relative"
             >
               <figure className="big-img">
                 <img
@@ -48,7 +48,7 @@ export default function About() {
           </Col>
           <Col sx="12" lg="7" className="mt-5">
             <div
-              data-aos="fade-left"
+              data-aos="zoom-out"
               data-aos-duration="5500"
               className="about-us w-100"
             >

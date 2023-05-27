@@ -121,7 +121,7 @@ export default function Users() {
     return usernameMatch;
   });
   return (
-    <main className="mt-4">
+    <main className="users-admin mt-4">
       <Container>
         <Row>
           <h1 className="text-center fw-bold p-3">Users Table</h1>

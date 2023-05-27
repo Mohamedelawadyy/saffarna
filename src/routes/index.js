@@ -13,6 +13,7 @@ import GetFlights from "../adminPages/GetFlights";
 import GetMessages from "../adminPages/GetMessages";
 import AdminHome from "../adminPages/AdminHome";
 import AddUser from "../adminPages/AddUser";
+import AddPackage from "../adminPages/AddPackage";
 export const rootRoutes = [
   {
     path: "/",
@@ -67,6 +68,10 @@ export const rootRoutes = [
       {
         path: "packages-admin",
         element: <PackagesAdmin />,
+      },
+      {
+        path: "add-package",
+        element: <AddPackage />,
       },
       {
         path: "get-Flights",

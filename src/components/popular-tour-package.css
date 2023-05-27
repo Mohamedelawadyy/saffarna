@@ -32,7 +32,11 @@
   top: 0;
   border-radius: 50%;
 }
-
+@media (min-width: 320px) {
+  .tour-package-card {
+    padding: 12px;
+  }
+}
 .tour-package-card {
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);

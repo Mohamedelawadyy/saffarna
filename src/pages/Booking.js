@@ -105,7 +105,7 @@ export default function Booking() {
                 </Button>
               ) : null}
             </div>
-            <Table striped bordered hover>
+            <Table responsive striped bordered hover>
               <thead>
                 <tr>
                   <th>#</th>

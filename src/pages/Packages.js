@@ -58,8 +58,8 @@ export default function Packages() {
       <header>
         <h1 className="title-section text-center mb-5 pb-5 pt-5">Packages</h1>
       </header>
-      <Container className="mt-3">
-        <Row>
+      <Container className="w-100 mt-3">
+        <Row className=" align-items-center m-auto">
           <div className="w-100 text-center p-4">
             <input
               type="text"

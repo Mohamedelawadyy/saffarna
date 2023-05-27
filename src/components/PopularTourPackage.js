@@ -39,7 +39,7 @@ export default function PopularTourPackage() {
             </div>
           </Col>
           {tourPackages.map((item) => (
-            <Col sm={12} md={4} lg={3} key={item.id}>
+            <Col className="mb-2" sm={12} md={4} lg={3} key={item.id}>
               <Card className="position-relative tour-package-card">
                 <div className="position-relative">
                   <Card.Img variant="top" src={item.image} loading="lazy" />

@@ -8,3 +8,38 @@ section.user-booking table {
 section.user-booking h3 {
   text-transform: uppercase;
 }
+@media (max-width: 768px) {
+  section.user-booking table thead {
+    display: none;
+  }
+  section.user-booking table,
+  section.user-booking table tbody,
+  section.user-booking table tr,
+  section.user-booking table td {
+    display: block;
+    width: 100%;
+  }
+  section.user-booking table tr {
+    margin-bottom: 10px;
+  }
+  section.user-booking table tbody tr td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  section.user-booking table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    font-style: 14px;
+    text-align: left;
+  }
+  section.user-booking table tbody tr td .group-btn {
+    display: flex !important;
+    justify-content: end !important;
+    align-items: center !important;
+  }
+}

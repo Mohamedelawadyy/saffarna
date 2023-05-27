@@ -5,6 +5,7 @@ section.booking-section input {
   border: 1px solid var(--primary-color);
   outline: none;
   transition: all 0.5s;
+  margin-bottom: 5px;
 }
 section.booking-section input:focus {
   border: 1px solid var(--gray);

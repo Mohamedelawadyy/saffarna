@@ -55,14 +55,16 @@ export default function PackageCard({ data }) {
   };
   return data.map((item) => (
     <>
-      <Col key={Math.random()}>
+      <Col lg={"3"} md={"4"} sm={"12"} key={Math.random()}>
         <Card
           data-aos="fade-left"
           data-aos-duration="4500"
           style={{
-            width: "18rem",
+            width: "98%",
             height: "35rem",
             marginBottom: "10px",
+            marginLeft: "auto",
+            marginRight: "auto",
           }}
         >
           <Card.Img

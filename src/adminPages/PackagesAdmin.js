@@ -1,11 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import StorefrontIcon from "@mui/icons-material/Storefront";
 
 export default function PackagesAdmin() {
   const [packages, setPackages] = useState([]);
   const [updatePackages, setUpdatePackages] = useState([]);
   const [filterId, setFilterId] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     try {
@@ -41,12 +44,12 @@ export default function PackagesAdmin() {
     return idMatch;
   });
   return (
-    <main className="packages">
+    <main className="packages-admin">
       <Container>
         <Row>
           <h1 className="text-center p-2 mb-3 mt-3">Packages</h1>
           <Col>
-            <div className="w-100 text-center p-4">
+            <div className="w-100 text-center  p-4 d-flex justify-content-center">
               <input
                 type="text"
                 placeholder="Filter by ID:"
@@ -54,6 +57,15 @@ export default function PackagesAdmin() {
                 value={filterId}
                 onChange={handleFilterById}
               />
+              <Button
+                className=" p-2"
+                onClick={() => navigate("/admin/add-package")}
+              >
+                <p className="m-auto">
+                  {" "}
+                  Add Package <StorefrontIcon />
+                </p>
+              </Button>
             </div>
             <Table striped bordered hover>
               <thead>

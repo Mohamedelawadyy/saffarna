@@ -9,7 +9,7 @@ import PopularTourPackage from "../components/PopularTourPackage";
 
 export default function Home() {
   return (
-    <main>
+    <main className="home-page">
       <Slider />
       <TabsBooking />
       <About />
