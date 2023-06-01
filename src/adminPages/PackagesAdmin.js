@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import StorefrontIcon from "@mui/icons-material/Storefront";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function PackagesAdmin() {
   const [packages, setPackages] = useState([]);
@@ -103,7 +104,7 @@ export default function PackagesAdmin() {
                             variant="danger"
                             onClick={() => handleDelete(item)}
                           >
-                            Delete
+                            <DeleteIcon />
                           </Button>
                         </td>
                       </tr>

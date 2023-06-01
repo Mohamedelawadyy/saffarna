@@ -9,6 +9,7 @@ import BookOnlineIcon from "@mui/icons-material/BookOnline";
 import Aos from "aos";
 import "../App.css";
 import "aos/dist/aos.css";
+import LazyImage from "./LazyImage";
 export default function About() {
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -24,24 +25,45 @@ export default function About() {
               className="widget-container mx-auto  position-relative"
             >
               <figure className="big-img">
-                <img
+                {/* <img
                   src="https://themesvila.com/themes-wp/voyagex/wp-content/uploads/2020/07/why-choose-us.jpg"
                   alt="widget"
                   loading="lazy"
+                /> */}
+                <LazyImage
+                  placeholderSrc={"https://via.placeholder.com/600/"}
+                  src={
+                    "https://themesvila.com/themes-wp/voyagex/wp-content/uploads/2020/07/why-choose-us.jpg"
+                  }
+                  placeholderStyle={{ width: "100%" }}
                 />
               </figure>
               <figure className="thump">
-                <img
+                {/* <img
                   src="https://themesvila.com/themes-wp/voyagex/wp-content/uploads/2020/07/thumb.jpg"
                   alt="widget"
                   loading="lazy"
+                /> */}
+                <LazyImage
+                  placeholderSrc={"https://via.placeholder.com/600/"}
+                  src={
+                    "https://themesvila.com/themes-wp/voyagex/wp-content/uploads/2020/07/thumb.jpg"
+                  }
+                  placeholderStyle={{ width: "100%" }}
                 />
               </figure>
               <figure className="thump2">
-                <img
+                {/* <img
                   src="https://themesvila.com/themes-wp/voyagex/wp-content/uploads/2020/07/thumb-2.jpg"
                   alt="widget"
                   loading="lazy"
+                /> */}
+                <LazyImage
+                  placeholderSrc={"https://via.placeholder.com/600/"}
+                  src={
+                    "https://themesvila.com/themes-wp/voyagex/wp-content/uploads/2020/07/thumb-2.jpg"
+                  }
+                  placeholderStyle={{ width: "100%" }}
                 />
               </figure>
             </div>

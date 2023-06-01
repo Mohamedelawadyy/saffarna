@@ -8,6 +8,8 @@ import { toast } from "react-toastify";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import { Avatar } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditNoteIcon from "@mui/icons-material/EditNote";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
@@ -180,13 +182,13 @@ export default function Users() {
                               className="me-2"
                               onClick={() => handleDelete(user)}
                             >
-                              Delete
+                              <DeleteIcon />
                             </Button>
                             <Button
                               variant="primary"
                               onClick={() => handleUpdate(user)}
                             >
-                              Update
+                              <EditNoteIcon />
                             </Button>
                           </td>
                         </tr>

@@ -11,7 +11,7 @@ export default function Flights({ data }) {
 
   const user = JSON.parse(sessionStorage.getItem("username"));
 
-  let container = [];
+  let container = JSON.parse(sessionStorage.getItem("flightsInSession")) || [];
   const selectHandler = async (item) => {
     if (JSON.parse(sessionStorage.getItem("userData"))) {
       let selectItem = { ...item, quantaty: 1 };
@@ -21,6 +21,10 @@ export default function Flights({ data }) {
         findItem.quantaty += 1;
         toast.success("update quantaty successful");
         const data = { flight_Booking: container };
+        const flightsInSession = sessionStorage.setItem(
+          "flightsInSession",
+          JSON.stringify(container)
+        );
         axios
           .patch(`http://localhost:9000/users/${user}`, data)
           .then((response) => {
@@ -37,6 +41,10 @@ export default function Flights({ data }) {
       } else {
         container = [...container, selectItem];
         const data = { flight_Booking: container };
+        const flightsInSession = sessionStorage.setItem(
+          "flightsInSession",
+          JSON.stringify(container)
+        );
         axios
           .patch(`http://localhost:9000/users/${user}`, data)
           .then((response) => {

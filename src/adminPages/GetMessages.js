@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function GetMessages() {
   const [messages, setMessages] = useState([]);
@@ -63,7 +64,7 @@ export default function GetMessages() {
                           variant="danger"
                           onClick={() => handleDelete(item)}
                         >
-                          Delete
+                          <DeleteIcon />
                         </Button>
                       </td>
                     </tr>

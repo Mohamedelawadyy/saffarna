@@ -4,20 +4,24 @@ import { Button, Card, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LazyImage from "./LazyImage";
 
 export default function PackageCard({ data }) {
   const user = JSON.parse(sessionStorage.getItem("username"));
   const navigate = useNavigate();
 
-  let container = [];
+  let container = JSON.parse(sessionStorage.getItem("packageInSession")) || [];
   const selectHandler = async (item) => {
     if (user) {
       let selectItem = { ...item, quantaty: 1 };
       const findItem = container.find((product) => product.id === item.id);
       if (findItem) {
         findItem.quantaty += 1;
-        toast.success("update quantaty successful");
         const data = { booking_package: container };
+        const packageInSession = sessionStorage.setItem(
+          "packageInSession",
+          JSON.stringify(container)
+        );
         axios
           .patch(`http://localhost:9000/users/${user}`, data)
           .then((response) => {
@@ -26,16 +30,39 @@ export default function PackageCard({ data }) {
               "bookingUser",
               JSON.stringify(response.data)
             );
+            toast.success("Update Quantaty successful", {
+              position: "bottom-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
           })
           .catch((error) => {
             console.log(error);
           });
         console.log(container);
       } else {
-        toast.success("Booking successful");
+        toast.success("Bookin successful", {
+          position: "bottom-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         container = [...container, selectItem];
 
         const data = { booking_package: container };
+        const packageInSession = sessionStorage.setItem(
+          "packageInSession",
+          JSON.stringify(container)
+        );
         axios
           .patch(`http://localhost:9000/users/${user}`, data)
           .then((response) => {
@@ -67,12 +94,17 @@ export default function PackageCard({ data }) {
             marginRight: "auto",
           }}
         >
-          <Card.Img
+          {/* <Card.Img
             variant="top"
             loading="lazy"
             src={item.image}
             width="100%"
             height="100%"
+          /> */}
+          <LazyImage
+            placeholderSrc={"https://via.placeholder.com/600/"}
+            src={item.image}
+            placeholderStyle={{ width: "100%", height: "100" }}
           />
           <Card.Body>
             <Card.Title>{item.country}</Card.Title>
@@ -91,7 +123,18 @@ export default function PackageCard({ data }) {
             </Button>
           </Card.Body>
         </Card>
-        <ToastContainer />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </Col>
     </>
   ));

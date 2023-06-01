@@ -114,14 +114,21 @@ export default function TabsBooking() {
           <div className="col-12">
             <form onSubmit={submitHandler} className="p-3">
               <Box sx={{ width: "100%" }}>
-                <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Box
+                  className=" d-flex justify-content-center text-center w-100"
+                  sx={{ borderBottom: 1, borderColor: "divider" }}
+                >
                   <Tabs
+                    className="text-center"
                     value={value}
                     onChange={handleChange}
                     aria-label="basic tabs example"
                   >
-                    <Tab label={<FlightIcon />} {...a11yProps(0)} />
-                    <Tab label={<LocalActivityIcon />} {...a11yProps(1)} />
+                    <Tab
+                      className="w-100 p-4"
+                      label={<FlightIcon />}
+                      {...a11yProps(0)}
+                    />
                   </Tabs>
                 </Box>
                 <TabPanel value={value} index={0}>

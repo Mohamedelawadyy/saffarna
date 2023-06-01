@@ -3,6 +3,7 @@ import axios from "axios";
 import "./user-booking.css";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function UserBooking() {
   const username = JSON.parse(sessionStorage.getItem("username"));
@@ -49,6 +50,14 @@ export default function UserBooking() {
   const deleteHandlerFlight = (id) => {
     const delData = data.filter((item) => item.id !== id);
     setData(delData);
+    if (JSON.parse(sessionStorage.getItem("flightsInSession"))) {
+      const flightsInSession = JSON.parse(
+        sessionStorage.getItem("flightsInSession")
+      );
+      const delInSession = flightsInSession.filter((item) => item.id !== id);
+      console.log(delInSession);
+      sessionStorage.setItem("flightsInSession", JSON.stringify(delInSession));
+    }
     sessionStorage.setItem("bookingUser", JSON.stringify(data));
     handleRemoveData(username, delData);
   };
@@ -56,6 +65,14 @@ export default function UserBooking() {
   const deleteHandlerPackages = (id) => {
     const delData = packageUser.filter((item) => item.id !== id);
     setPackageUser(delData);
+    if (JSON.parse(sessionStorage.getItem("packageInSession"))) {
+      const packageInSession = JSON.parse(
+        sessionStorage.getItem("packageInSession")
+      );
+      const delInSession = packageInSession.filter((item) => item.id !== id);
+      console.log(delInSession);
+      sessionStorage.setItem("packageInSession", JSON.stringify(delInSession));
+    }
     sessionStorage.setItem("packageUser", JSON.stringify(data));
     handleRemovePackage(username, delData);
   };
@@ -164,10 +181,16 @@ export default function UserBooking() {
                     {data.map((item) => (
                       <tr key={Math.random()}>
                         <td data-label="company">{item.company}</td>
-                        <td data-label="Departure Time">{item.departureTime}</td>
+                        <td data-label="Departure Time">
+                          {item.departureTime}
+                        </td>
                         <td data-label="arrival Time">{item.arrivalTime}</td>
-                        <td data-label="destination From">{item.destinationFrom}</td>
-                        <td data-label="destination To">{item.destinationTo}</td>
+                        <td data-label="destination From">
+                          {item.destinationFrom}
+                        </td>
+                        <td data-label="destination To">
+                          {item.destinationTo}
+                        </td>
                         <td data-label="Price$">{item.price}</td>
                         <td data-label="quantaty">
                           <div className="group-btn d-flex fs-5 fw-bold gap-2 align-items-center">
@@ -187,7 +210,7 @@ export default function UserBooking() {
                             variant="danger"
                             onClick={() => deleteHandlerFlight(item.id)}
                           >
-                            Cancel
+                            <DeleteIcon />
                           </Button>
                         </td>
                       </tr>
@@ -237,7 +260,7 @@ export default function UserBooking() {
                             variant="danger"
                             onClick={() => deleteHandlerPackages(item.id)}
                           >
-                            Cancel
+                            <DeleteIcon />
                           </Button>
                         </td>
                       </tr>

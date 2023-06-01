@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function GetFlights() {
   const [flights, setFlights] = useState([]);
@@ -87,7 +88,7 @@ export default function GetFlights() {
                   <td>
                     {" "}
                     <Button variant="danger" onClick={() => handleDelete(item)}>
-                      Delete
+                      <DeleteIcon />
                     </Button>
                   </td>
                 </tr>

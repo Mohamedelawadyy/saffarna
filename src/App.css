@@ -14,6 +14,9 @@ body {
   --Alice-Blue: #f1f6f9;
   --gray: #666;
 }
+.hidden {
+  display: none;
+}
 main.home-page {
   overflow: hidden;
 }
