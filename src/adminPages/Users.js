@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Table, ToastContainer } from "react-bootstrap";
+import { Col, Container, Row, Table } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import "../layouts/adminDash.css";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import { Avatar } from "@mui/material";
@@ -89,9 +89,11 @@ export default function Users() {
       .then((response) => {
         console.log(response.data);
         setUpdateUser(response.data);
+        toast.success("Updated  successfuly");
       })
       .catch((error) => {
         console.log(error);
+        toast.error(error);
       });
     const errors = {};
 

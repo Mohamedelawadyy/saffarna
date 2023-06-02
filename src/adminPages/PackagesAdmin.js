@@ -4,6 +4,8 @@ import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function PackagesAdmin() {
   const [packages, setPackages] = useState([]);
@@ -34,8 +36,10 @@ export default function PackagesAdmin() {
         )
         .then((response) => {
           console.log(response.data);
+          toast.success("Deleted success");
         });
     } catch (error) {
+      toast.error(error);
       alert(error);
     }
   };
@@ -140,6 +144,7 @@ export default function PackagesAdmin() {
                     ))}
               </tbody>
             </Table>
+            <ToastContainer />
           </Col>
         </Row>
       </Container>
