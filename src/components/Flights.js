@@ -3,7 +3,7 @@ import axios from "axios";
 import React from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Flights({ data }) {
@@ -89,7 +89,6 @@ export default function Flights({ data }) {
           </td>
         </tr>
       ))}
-      <ToastContainer />
     </>
   );
 }

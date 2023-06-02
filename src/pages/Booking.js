@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import Flights from "../components/Flights";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./booking.css";
 
 export default function Booking() {
@@ -133,6 +135,7 @@ export default function Booking() {
                 )}
               </tbody>
             </Table>
+            <ToastContainer />
           </Col>
         </Row>
       </Container>
