@@ -2,34 +2,41 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function GetMessages() {
   const [messages, setMessages] = useState([]);
-  const [updateMessages, setUpdateMessages] = useState([]);
 
   useEffect(() => {
     try {
-      axios.get(`http://localhost:9000/messages`).then((response) => {
-        setMessages(response.data);
-        console.log(response.data);
-      });
-    } catch (error) {
-      alert(error);
-    }
-  }, []);
-
-  const handleDelete = (item) => {
-    const delData = messages.filter((item) => item.id !== messages.id);
-    setUpdateMessages(delData);
-    console.log(delData);
-    try {
       axios
-        .delete(`http://localhost:9000/messages/${item.id}`)
+        .get(`https://json-server-dbsaffarna.onrender.com/messages`)
         .then((response) => {
+          setMessages(response.data);
           console.log(response.data);
         });
     } catch (error) {
       alert(error);
+    }
+  }, [setMessages]);
+
+  const handleDelete = (message) => {
+    const delData = messages.filter((item) => item.id !== message.id);
+    setMessages(delData);
+    console.log(delData);
+    try {
+      axios
+        .delete(
+          `https://json-server-dbsaffarna.onrender.com/messages/${message.id}`
+        )
+        .then((response) => {
+          console.log(response.data);
+          toast.success("Deleted  success");
+        });
+    } catch (error) {
+      alert(error);
+      toast.error(error);
     }
   };
   return (
@@ -74,6 +81,7 @@ export default function GetMessages() {
                 )}
               </tbody>
             </Table>
+            <ToastContainer />
           </Col>
         </Row>
       </Container>

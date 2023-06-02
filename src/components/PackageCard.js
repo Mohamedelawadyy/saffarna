@@ -23,7 +23,10 @@ export default function PackageCard({ data }) {
           JSON.stringify(container)
         );
         axios
-          .patch(`http://localhost:9000/users/${user}`, data)
+          .patch(
+            `https://json-server-dbsaffarna.onrender.com/users/${user}`,
+            data
+          )
           .then((response) => {
             console.log(response.data);
             sessionStorage.setItem(
@@ -64,7 +67,10 @@ export default function PackageCard({ data }) {
           JSON.stringify(container)
         );
         axios
-          .patch(`http://localhost:9000/users/${user}`, data)
+          .patch(
+            `https://json-server-dbsaffarna.onrender.com/users/${user}`,
+            data
+          )
           .then((response) => {
             console.log(response.data);
             sessionStorage.setItem(

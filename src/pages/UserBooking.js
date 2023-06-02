@@ -12,10 +12,12 @@ export default function UserBooking() {
 
   useEffect(() => {
     try {
-      axios.get(`http://localhost:9000/users/${username}`).then((response) => {
-        setData(response.data.flight_Booking);
-        setPackageUser(response.data.booking_package);
-      });
+      axios
+        .get(`https://json-server-dbsaffarna.onrender.com/users/${username}`)
+        .then((response) => {
+          setData(response.data.flight_Booking);
+          setPackageUser(response.data.booking_package);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -24,7 +26,10 @@ export default function UserBooking() {
   function handleRemoveData(username, data) {
     const bookingFlight = { flight_Booking: data };
     axios
-      .patch(`http://localhost:9000/users/${username}`, bookingFlight)
+      .patch(
+        `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+        bookingFlight
+      )
       .then((response) => {
         console.log(response.data);
         sessionStorage.setItem("bookingUser", JSON.stringify(response.data));
@@ -37,7 +42,10 @@ export default function UserBooking() {
   function handleRemovePackage(username, data) {
     const bookingpackage = { booking_package: data };
     axios
-      .patch(`http://localhost:9000/users/${username}`, bookingpackage)
+      .patch(
+        `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+        bookingpackage
+      )
       .then((response) => {
         console.log(response.data);
         sessionStorage.setItem("packageUser", JSON.stringify(response.data));
@@ -98,7 +106,10 @@ export default function UserBooking() {
     const dataWithNewQty = { flight_Booking: data };
     console.log(data);
     axios
-      .patch(`http://localhost:9000/users/${username}`, dataWithNewQty)
+      .patch(
+        `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+        dataWithNewQty
+      )
       .then((response) => {
         setData(response.data.flight_Booking);
         sessionStorage.setItem("bookingUser", JSON.stringify(response.data));
@@ -114,7 +125,10 @@ export default function UserBooking() {
       const dataWithNewQty = { flight_Booking: data };
       console.log(data);
       axios
-        .patch(`http://localhost:9000/users/${username}`, dataWithNewQty)
+        .patch(
+          `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+          dataWithNewQty
+        )
         .then((response) => {
           setData(response.data.flight_Booking);
           sessionStorage.setItem("bookingUser", JSON.stringify(response.data));
@@ -130,7 +144,10 @@ export default function UserBooking() {
       console.log(item);
       const dataWithNewQty = { booking_package: packageUser };
       axios
-        .patch(`http://localhost:9000/users/${username}`, dataWithNewQty)
+        .patch(
+          `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+          dataWithNewQty
+        )
         .then((response) => {
           setPackageUser(response.data.booking_package);
           sessionStorage.setItem("bookingUser", JSON.stringify(response.data));
@@ -144,7 +161,10 @@ export default function UserBooking() {
     item.quantaty += 1;
     const dataWithNewQty = { booking_package: packageUser };
     axios
-      .patch(`http://localhost:9000/users/${username}`, dataWithNewQty)
+      .patch(
+        `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+        dataWithNewQty
+      )
       .then((response) => {
         setPackageUser(response.data.booking_package);
         sessionStorage.setItem("bookingUser", JSON.stringify(response.data));

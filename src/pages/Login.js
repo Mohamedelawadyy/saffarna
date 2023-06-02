@@ -20,7 +20,7 @@ function LoginForm() {
     event.preventDefault();
 
     axios
-      .get(`http://localhost:9000/users/${username}`)
+      .get(`https://json-server-dbsaffarna.onrender.com/users/${username}`)
       .then((response) => {
         // console.log(response.data);
         if (Object.keys(response.data) === 0) {

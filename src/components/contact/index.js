@@ -21,7 +21,7 @@ export default function Contact() {
     e.preventDefault();
     const value = { name, email, subject, message };
     axios
-      .post("http://localhost:9000/messages", value)
+      .post("https://json-server-dbsaffarna.onrender.com/messages", value)
       .then((response) => {
         toast.success("Success Send");
         console.log(response.data);

@@ -60,7 +60,7 @@ export default function AddPackage() {
     if (Object.keys(errors).length === 0) {
       console.log(formData);
       axios
-        .post("http://localhost:9000/package", {
+        .post("https://json-server-dbsaffarna.onrender.com/package", {
           ...formData,
         })
         .then((response) => {

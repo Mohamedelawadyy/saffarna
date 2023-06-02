@@ -2,34 +2,41 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function GetFlights() {
   const [flights, setFlights] = useState([]);
-  const [updateFlights, setUpdateFlights] = useState([]);
   const [filterId, setFilterId] = useState([]);
 
   useEffect(() => {
     try {
-      axios.get(`http://localhost:9000/flights`).then((response) => {
-        setFlights(response.data);
-        console.log(response.data);
-      });
+      axios
+        .get(`https://json-server-dbsaffarna.onrender.com/flights`)
+        .then((response) => {
+          setFlights(response.data);
+          console.log(response.data);
+        });
     } catch (error) {
       alert(error);
     }
-  }, [updateFlights]);
+  }, [setFlights]);
 
-  const handleDelete = (item) => {
-    const delData = flights.filter((item) => item.id !== flights.id);
-    setUpdateFlights(delData);
+  const handleDelete = (flight) => {
+    const delData = flights.filter((item) => item.id !== flight.id);
+    setFlights(delData);
     console.log(delData);
+    toast.success("Deleted  success");
     try {
       axios
-        .delete(`http://localhost:9000/flights/${item.id}`)
+        .delete(
+          `https://json-server-dbsaffarna.onrender.com/flights/${flight.id}`
+        )
         .then((response) => {
           console.log(response.data);
         });
     } catch (error) {
+      toast.error(error);
       alert(error);
     }
   };
@@ -119,6 +126,7 @@ export default function GetFlights() {
               ))}
         </tbody>
       </Table>
+      <ToastContainer />
     </main>
   );
 }

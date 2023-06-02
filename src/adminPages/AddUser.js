@@ -71,7 +71,7 @@ export default function AddUser() {
     if (Object.keys(errors).length === 0) {
       console.log(formData);
       axios
-        .post("http://localhost:9000/users", {
+        .post("https://json-server-dbsaffarna.onrender.com/users", {
           ...formData,
         })
         .then((response) => {

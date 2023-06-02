@@ -21,7 +21,7 @@ export default function Packages() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:9000/package")
+      .get("https://json-server-dbsaffarna.onrender.com/package")
       .then((response) => {
         setData(response.data);
       })

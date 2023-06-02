@@ -12,9 +12,11 @@ export default function PopularTourPackage() {
   const tourPackages = data.slice(0, 4);
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get(`http://localhost:9000/package`).then((response) => {
-      setData(response.data);
-    });
+    axios
+      .get(`https://json-server-dbsaffarna.onrender.com/package`)
+      .then((response) => {
+        setData(response.data);
+      });
   }, []);
   useEffect(() => {
     Aos.init({ duration: 2000 });

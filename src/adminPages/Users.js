@@ -25,16 +25,18 @@ export default function Users() {
   };
   const handleDelete = (user) => {
     const delData = users.filter((item) => item.id !== user.id);
-    setUpdateUser(delData);
+    setUsers(delData);
     console.log(delData);
+    toast.success("Delete  success");
     try {
       axios
-        .delete(`http://localhost:9000/users/${user.id}`)
+        .delete(`https://json-server-dbsaffarna.onrender.com/users/${user.id}`)
         .then((response) => {
           console.log(response.data);
         });
     } catch (error) {
       alert(error);
+      toast.error(error);
     }
   };
 
@@ -51,13 +53,15 @@ export default function Users() {
 
   useEffect(() => {
     try {
-      axios.get(`http://localhost:9000/users`).then((response) => {
-        setUsers(response.data);
-      });
+      axios
+        .get(`https://json-server-dbsaffarna.onrender.com/users`)
+        .then((response) => {
+          setUsers(response.data);
+        });
     } catch (error) {
       alert(error);
     }
-  }, [updateUser]);
+  }, [setUsers, updateUser]);
 
   const [formErrors, setFormErrors] = useState({
     firstName: "",
@@ -73,18 +77,20 @@ export default function Users() {
     const email = updateUser.email;
     const password = updateUser.password;
     axios
-      .patch(`http://localhost:9000/users/${updateUser.id}`, {
-        firstName,
-        lastName,
-        email,
-        password,
-      })
+      .patch(
+        `https://json-server-dbsaffarna.onrender.com/users/${updateUser.id}`,
+        {
+          firstName,
+          lastName,
+          email,
+          password,
+        }
+      )
       .then((response) => {
         console.log(response.data);
         setUpdateUser(response.data);
       })
       .catch((error) => {
-        toast.error(error);
         console.log(error);
       });
     const errors = {};
@@ -208,13 +214,13 @@ export default function Users() {
                               className="me-2"
                               onClick={() => handleDelete(user)}
                             >
-                              Delete
+                              <DeleteIcon />
                             </Button>
                             <Button
                               variant="primary"
                               onClick={() => handleUpdate(user)}
                             >
-                              Update
+                              <EditNoteIcon />
                             </Button>
                           </td>
                         </tr>
@@ -296,9 +302,9 @@ export default function Users() {
                     Save Changes
                   </Button>
                 </Modal.Footer>
-                <ToastContainer />
               </form>
             </Modal>
+            <ToastContainer />
           </Col>
         </Row>
       </Container>

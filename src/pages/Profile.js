@@ -22,13 +22,16 @@ export default function Profile() {
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .patch(`http://localhost:9000/users/${userData.id}`, {
-        firstName,
-        lastName,
-        id,
-        email,
-        profileImg,
-      })
+      .patch(
+        `https://json-server-dbsaffarna.onrender.com/users/${userData.id}`,
+        {
+          firstName,
+          lastName,
+          id,
+          email,
+          profileImg,
+        }
+      )
       .then((response) => {
         console.log(response);
         sessionStorage.setItem("userData", JSON.stringify(response.data));

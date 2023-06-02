@@ -7,28 +7,31 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 export default function PackagesAdmin() {
   const [packages, setPackages] = useState([]);
-  const [updatePackages, setUpdatePackages] = useState([]);
   const [filterId, setFilterId] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     try {
-      axios.get(`http://localhost:9000/package`).then((response) => {
-        setPackages(response.data);
-        console.log(response.data);
-      });
+      axios
+        .get(`https://json-server-dbsaffarna.onrender.com/package`)
+        .then((response) => {
+          setPackages(response.data);
+          console.log(response.data);
+        });
     } catch (error) {
       alert(error);
     }
-  }, [updatePackages]);
+  }, [setPackages]);
 
-  const handleDelete = (item) => {
-    const delData = packages.filter((item) => item.id !== packages.id);
-    setUpdatePackages(delData);
+  const handleDelete = (packagee) => {
+    const delData = packages.filter((item) => item.id !== packagee.id);
+    setPackages(delData);
     console.log(delData);
     try {
       axios
-        .delete(`http://localhost:9000/package/${item.id}`)
+        .delete(
+          `https://json-server-dbsaffarna.onrender.com/package/${packagee.id}`
+        )
         .then((response) => {
           console.log(response.data);
         });

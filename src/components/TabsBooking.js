@@ -5,7 +5,6 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import FlightIcon from "@mui/icons-material/Flight";
-import LocalActivityIcon from "@mui/icons-material/LocalActivity";
 import "./slider/index.css";
 import { useState } from "react";
 import { Location } from "./locationData";
@@ -89,7 +88,7 @@ export default function TabsBooking() {
 
     if (username) {
       axios
-        .patch(`http://localhost:9000/users/${username}`, data)
+        .patch(`https://json-server-dbsaffarna.onrender.com/${username}`, data)
         .then((response) => {
           if (Object.keys(response.data) === 0) {
             toast.error("req failed");

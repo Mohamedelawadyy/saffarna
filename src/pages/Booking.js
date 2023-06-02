@@ -43,7 +43,7 @@ export default function Booking() {
   useEffect(() => {
     if (username) {
       axios
-        .get(`http://localhost:9000/users/${username}`)
+        .get(`https://json-server-dbsaffarna.onrender.com/users/${username}`)
         .then((response) => {
           setUserReq(response.data.req);
         })
@@ -54,7 +54,7 @@ export default function Booking() {
   }, []);
   useEffect(() => {
     axios
-      .get("http://localhost:9000/flights")
+      .get("https://json-server-dbsaffarna.onrender.com/flights")
       .then((response) => {
         setData(response.data);
       })
@@ -67,7 +67,10 @@ export default function Booking() {
     setUserReq("");
     const req = { req: "" };
     axios
-      .patch(`http://localhost:9000/users/${username}`, req)
+      .patch(
+        `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+        req
+      )
       .then((response) => {
         console.log(response.data);
       })
