@@ -101,9 +101,9 @@ export default function Contact() {
                   </Form.Group>
 
                   <Button type="submit">Send Message</Button>
+                  <ToastContainer />
                 </Col>
               </Row>
-              <ToastContainer />
             </Form>
           </Col>
         </Row>
