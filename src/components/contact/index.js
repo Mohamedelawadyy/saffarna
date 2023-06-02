@@ -103,9 +103,9 @@ export default function Contact() {
                   <Button type="submit">Send Message</Button>
                 </Col>
               </Row>
+              <ToastContainer />
             </Form>
           </Col>
-          <ToastContainer />
         </Row>
       </Container>
     </section>
