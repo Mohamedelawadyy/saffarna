@@ -17,7 +17,18 @@
   color: white;
   border: 1px solid var(--primary-color);
 }
-
+@media (max-width: 767px) {
+  .carousel h3,
+  .carousel h1,
+  .carousel p {
+    font-size: 12px;
+    margin-bottom: 3px;
+  }
+  .carousel button {
+    font-size: 12px;
+    padding: 4px;
+  }
+}
 .over-lay {
   background-color: #000;
   position: absolute;

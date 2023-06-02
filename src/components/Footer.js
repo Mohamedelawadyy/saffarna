@@ -12,7 +12,7 @@ export default function Footer() {
       <Container>
         <Row>
           <Col sx="12" md="4">
-            <div className="footer-logo">
+            <div className="footer-logo mb-3">
               <img src={logo} alt="logo" loading="lazy" />
               <p>Your mind should be stronger than your feelings , fly</p>
               <div className="social-icon d-flex align-items-center gap-4">
@@ -32,7 +32,7 @@ export default function Footer() {
             </div>
           </Col>
           <Col sx="12" md="4">
-            <div className="information-footer d-flex flex-column ">
+            <div className="information-footer d-flex flex-column mb-3 ">
               <Link to={"/"}>Home</Link>
               <Link to={"/booking"}>Booking</Link>
               <Link to={"/packages"}>Packages</Link>
@@ -43,17 +43,19 @@ export default function Footer() {
             </div>
           </Col>
           <Col sx="12" md="4">
-            <h5 className="mt-2 text-center">
-              Subscribe ,Newsletters & get Latest News
-            </h5>
+            <div className="p-2 mb-2">
+              <h5 className="mt-2 text-center">
+                Subscribe ,Newsletters & get Latest News
+              </h5>
 
-            <div className="subscribe-input">
-              <input
-                type="text"
-                className="w-100"
-                placeholder="your Email please"
-              />
-              <Button>Subscribe</Button>
+              <div className="subscribe-input">
+                <input
+                  type="text"
+                  className="w-100"
+                  placeholder="your Email please"
+                />
+                <Button>Subscribe</Button>
+              </div>
             </div>
           </Col>
         </Row>

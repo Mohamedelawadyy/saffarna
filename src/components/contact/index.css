@@ -44,6 +44,11 @@ section#contact form {
   padding: 50px;
   border-radius: 8px;
 }
+section#contact form input,
+section#contact form textarea {
+  width: 100% !important;
+  margin: auto;
+}
 
 section#contact textarea:focus,
 section#contact input:focus {

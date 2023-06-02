@@ -21,6 +21,7 @@ section.packages input {
   outline: none;
   transition: all 0.5s;
   margin-bottom: 5px;
+  max-width: 100%;
 }
 
 section.packages input:focus {
