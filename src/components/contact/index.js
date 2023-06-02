@@ -101,11 +101,11 @@ export default function Contact() {
                   </Form.Group>
 
                   <Button type="submit">Send Message</Button>
-                  <ToastContainer />
                 </Col>
               </Row>
             </Form>
           </Col>
+          <ToastContainer />
         </Row>
       </Container>
     </section>
