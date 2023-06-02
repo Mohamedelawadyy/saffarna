@@ -14,10 +14,10 @@ export default function AsideForAdmin() {
         <Container fluid={"true"}>
           <Row>
             <aside>
-              <Col sm={"12"}>
-                <div className="logo-aside w-100">
-                  <Link to={""}>
-                    <img className="w-100" alt="logo" src={logo} />
+              <Col sm={"12"} md={"2"}>
+                <div className="logo-aside text-center w-100">
+                  <Link to={"/ "}>
+                    <img className="w-100 h-100" alt="logo" src={logo} />
                   </Link>
                 </div>
                 <div className="aside-content">

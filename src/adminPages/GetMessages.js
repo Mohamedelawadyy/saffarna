@@ -45,7 +45,7 @@ export default function GetMessages() {
         <Row>
           <Col sm={"12"}>
             <h1 className="text-center">Messages</h1>
-            <Table responsive={"sm"} striped bordered hover>
+            <Table responsive striped bordered hover>
               <thead>
                 <tr>
                   <th>ID</th>

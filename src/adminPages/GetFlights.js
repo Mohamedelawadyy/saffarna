@@ -60,7 +60,7 @@ export default function GetFlights() {
           onChange={handleFilterById}
         />
       </div>
-      <Table striped bordered hover>
+      <Table responsive striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>

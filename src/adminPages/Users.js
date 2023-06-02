@@ -143,10 +143,7 @@ export default function Users() {
               value={filterUser}
               onChange={handleFilterByUsername}
             />
-            <Button
-              className=" p-2"
-              onClick={() => navigate("/admin/add-user")}
-            >
+            <Button className="p-2" onClick={() => navigate("/admin/add-user")}>
               <p className="m-auto">
                 {" "}
                 Add User <AddIcon />
@@ -154,13 +151,7 @@ export default function Users() {
             </Button>
           </div>
           <Col sm={"12"}>
-            <Table
-              responsive="sm"
-              className="users-table"
-              striped
-              bordered
-              hover
-            >
+            <Table responsive className="users-table" striped bordered hover>
               <thead>
                 <tr>
                   <th>First Name</th>
@@ -187,7 +178,7 @@ export default function Users() {
                           <td>
                             <Button
                               variant="danger"
-                              className="me-2"
+                              className="mb-1 me-2"
                               onClick={() => handleDelete(user)}
                             >
                               <DeleteIcon />
@@ -213,7 +204,7 @@ export default function Users() {
                           <td>
                             <Button
                               variant="danger"
-                              className="me-2"
+                              className="me-2 mb-1"
                               onClick={() => handleDelete(user)}
                             >
                               <DeleteIcon />

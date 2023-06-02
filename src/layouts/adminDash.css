@@ -24,12 +24,18 @@ aside {
   background-color: rgba(211, 211, 211, 0.521);
   padding: 12px 15px;
   height: 100vh;
+  width: 18% !important;
   max-width: 100%;
-  width: 100%;
+  position: fixed;
+  top: 0;
 }
-@media (max-width: 676px) {
+aside .logo-aside img {
+  width: 11rem !important;
+}
+@media (max-width: 767px) {
   aside {
-    height: auto;
+    position: static;
+    height: auto !important;
     width: 100% !important;
     margin: auto;
     padding: 10px;
@@ -53,6 +59,9 @@ aside {
 }
 main {
   max-width: 100%;
+}
+aside .aside-content ul li a {
+  display: flex !important;
 }
 
 aside .aside-content {

@@ -75,7 +75,7 @@ export default function PackagesAdmin() {
                 </p>
               </Button>
             </div>
-            <Table striped bordered hover>
+            <Table responsive striped bordered hover>
               <thead>
                 <tr>
                   <th>ID</th>
