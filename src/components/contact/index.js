@@ -104,8 +104,8 @@ export default function Contact() {
                 </Col>
               </Row>
             </Form>
+            <ToastContainer />
           </Col>
-          <ToastContainer />
         </Row>
       </Container>
     </section>

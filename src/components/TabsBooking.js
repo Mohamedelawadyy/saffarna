@@ -82,13 +82,16 @@ export default function TabsBooking() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    let values = { fromDate, toDate, destinationFrom, destinationTo };
+    let values = { fromDate, toDate };
     let username = JSON.parse(sessionStorage.getItem("username"));
     const data = { req: values };
 
     if (username) {
       axios
-        .patch(`https://json-server-dbsaffarna.onrender.com/${username}`, data)
+        .patch(
+          `https://json-server-dbsaffarna.onrender.com/users/${username}`,
+          data
+        )
         .then((response) => {
           if (Object.keys(response.data) === 0) {
             toast.error("req failed");
@@ -97,7 +100,7 @@ export default function TabsBooking() {
               "userReq",
               JSON.stringify(response.data.req)
             );
-            toast.success("req  success");
+            toast.success("req success");
             navigate("/booking");
           }
         });
