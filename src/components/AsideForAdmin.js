@@ -6,6 +6,7 @@ import MessageIcon from "@mui/icons-material/Message";
 import PersonIcon from "@mui/icons-material/Person";
 import AirlinesIcon from "@mui/icons-material/Airlines";
 import StorefrontIcon from "@mui/icons-material/Storefront";
+import RequestPageIcon from "@mui/icons-material/RequestPage";
 
 export default function AsideForAdmin() {
   return (
@@ -30,6 +31,12 @@ export default function AsideForAdmin() {
                       <Link to={"get-users"}>
                         <PersonIcon />
                         <span>Users</span>
+                      </Link>{" "}
+                    </li>
+                    <li>
+                      <Link to={"users-bookings"}>
+                        <RequestPageIcon />
+                        <span>Requests</span>
                       </Link>{" "}
                     </li>
                     <li>

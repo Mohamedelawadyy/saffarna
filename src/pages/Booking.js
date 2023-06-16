@@ -5,11 +5,18 @@ import Flights from "../components/Flights";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./booking.css";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function Booking() {
   const username = JSON.parse(sessionStorage.getItem("username"));
   const [userReq, setUserReq] = useState([]);
   const [data, setData] = useState([]);
+  let isLoading = true;
+  if (data.length !== 0) {
+    isLoading = false;
+  } else {
+    isLoading = true;
+  }
 
   const [companyFilter, setCompanyFilter] = useState("");
   const [priceFilter, setPriceFilter] = useState("");
@@ -81,64 +88,70 @@ export default function Booking() {
       });
   };
   return (
-    <section className="booking-section">
-      <Container>
-        <Row>
-          <Col>
-            <div className="w-100 text-center p-4">
-              <input
-                type="text"
-                placeholder="Filter by company:"
-                id="companyFilter"
-                value={companyFilter}
-                onChange={handleCompanyFilterChange}
-              />
+    <>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <section className="booking-section">
+          <Container>
+            <Row>
+              <Col>
+                <div className="w-100 text-center p-4">
+                  <input
+                    type="text"
+                    placeholder="Filter by company:"
+                    id="companyFilter"
+                    value={companyFilter}
+                    onChange={handleCompanyFilterChange}
+                  />
 
-              <input
-                type="number"
-                placeholder="Filter by price:"
-                id="priceFilter"
-                value={priceFilter}
-                onChange={handlePriceFilterChange}
-              />
-              {userReq ? (
-                <Button
-                  className="d-block m-auto mt-3"
-                  onClick={handleRemoveReq}
-                >
-                  SHow All
-                </Button>
-              ) : null}
-            </div>
-            <Table responsive striped bordered hover>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Company</th>
-                  <th>departure Time</th>
-                  <th>arrivalTime</th>
-                  <th>destination From</th>
-                  <th>destination To</th>
-                  <th>Price</th>
-                  <th>Select</th>
-                </tr>
-              </thead>
-              <tbody>
-                {userReq ? (
-                  <>
-                    <Flights data={filteredFlightsByDateFrom} />
-                  </>
-                ) : companyFilter.length !== 0 ? (
-                  <Flights data={filteredFlightsCompany} />
-                ) : (
-                  <Flights data={filteredFlightsPrice} />
-                )}
-              </tbody>
-            </Table>
-            <ToastContainer />
-          </Col>
-        </Row>
-      </Container>
-    </section>
+                  <input
+                    type="number"
+                    placeholder="Filter by price:"
+                    id="priceFilter"
+                    value={priceFilter}
+                    onChange={handlePriceFilterChange}
+                  />
+                  {userReq ? (
+                    <Button
+                      className="d-block m-auto mt-3"
+                      onClick={handleRemoveReq}
+                    >
+                      SHow All
+                    </Button>
+                  ) : null}
+                </div>
+                <Table responsive striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Company</th>
+                      <th>departure Time</th>
+                      <th>arrivalTime</th>
+                      <th>destination From</th>
+                      <th>destination To</th>
+                      <th>Price</th>
+                      <th>Select</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {userReq ? (
+                      <>
+                        <Flights data={filteredFlightsByDateFrom} />
+                      </>
+                    ) : companyFilter.length !== 0 ? (
+                      <Flights data={filteredFlightsCompany} />
+                    ) : (
+                      <Flights data={filteredFlightsPrice} />
+                    )}
+                  </tbody>
+                </Table>
+                <ToastContainer />
+              </Col>
+            </Row>
+          </Container>
+        </section>
+      )}
+    </>
   );
 }

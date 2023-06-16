@@ -14,6 +14,7 @@ import GetMessages from "../adminPages/GetMessages";
 import AdminHome from "../adminPages/AdminHome";
 import AddUser from "../adminPages/AddUser";
 import AddPackage from "../adminPages/AddPackage";
+import AdminUsersBooking from "../adminPages/AdminUsersBooking";
 export const rootRoutes = [
   {
     path: "/",
@@ -60,6 +61,10 @@ export const rootRoutes = [
       {
         path: "get-users",
         element: <Users />,
+      },
+      {
+        path: "users-bookings",
+        element: <AdminUsersBooking />,
       },
       {
         path: "Add-user",

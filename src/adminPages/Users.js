@@ -154,6 +154,7 @@ export default function Users() {
             <Table responsive className="users-table" striped bordered hover>
               <thead>
                 <tr>
+                  <th>Profile Image</th>
                   <th>First Name</th>
                   <th>Last Name</th>
                   <th>Username</th>
@@ -165,8 +166,8 @@ export default function Users() {
               <tbody>
                 {filterUser
                   ? filteredByUsername.map((user) => (
-                      <>
-                        <tr key={user.id}>
+                      <React.Fragment key={user.id}>
+                        <tr>
                           <td>
                             <Avatar alt="Remy Sharp" src={user.profileImg} />
                           </td>
@@ -191,11 +192,11 @@ export default function Users() {
                             </Button>
                           </td>
                         </tr>
-                      </>
+                      </React.Fragment>
                     ))
                   : users.map((user) => (
-                      <>
-                        <tr key={user.id}>
+                      <React.Fragment key={user.id}>
+                        <tr>
                           <td>{user.firstName}</td>
                           <td>{user.lastName}</td>
                           <td>{user.id}</td>
@@ -217,7 +218,7 @@ export default function Users() {
                             </Button>
                           </td>
                         </tr>
-                      </>
+                      </React.Fragment>
                     ))}
               </tbody>
             </Table>

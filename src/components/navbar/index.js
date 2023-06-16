@@ -5,7 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import PersonIcon from "@mui/icons-material/Person";
 import logo from "./../../images/logo/OrangeGrayLogo.png";
-import { Badge, NavDropdown } from "react-bootstrap";
+import { NavDropdown } from "react-bootstrap";
 import { Avatar } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useSelector } from "react-redux";
@@ -57,14 +57,6 @@ function NavbarApp() {
                     LogOut
                   </NavDropdown.Item>
                   <NavDropdown.Item as={Link} to={"/userBooking"}>
-                    {/* {items.length === 0 ? null : (
-                      <>
-                        My Booking
-                        <Badge className="ms-2" bg="secondary">
-                          {items[0].length + items[1].length}
-                        </Badge>
-                      </>
-                    )} */}
                     My Booking
                   </NavDropdown.Item>
                   <NavDropdown.Item

@@ -7,6 +7,7 @@ import { fetchBooking } from "../rtk/slices/booking-slice";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import PackageCard from "../components/PackageCard";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function Packages() {
   useEffect(() => {
@@ -14,6 +15,12 @@ export default function Packages() {
   }, []);
 
   const [data, setData] = useState([]);
+  let isLoading = true;
+  if (data.length !== 0) {
+    isLoading = false;
+  } else {
+    isLoading = true;
+  }
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchBooking());
@@ -54,36 +61,44 @@ export default function Packages() {
   });
 
   return (
-    <section className="packages">
-      <header>
-        <h1 className="title-section text-center mb-5 pb-5 pt-5">Packages</h1>
-      </header>
-      <Container className="w-100 mt-3">
-        <Row className=" align-items-center m-auto">
-          <div className="w-100 text-center p-4">
-            <input
-              type="text"
-              placeholder="Filter by company:"
-              id="companyFilter"
-              value={countryFilter}
-              onChange={handleCompanyFilterChange}
-            />
+    <>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <section className="packages">
+          <header>
+            <h1 className="title-section text-center mb-5 pb-5 pt-5">
+              Packages
+            </h1>
+          </header>
+          <Container className="w-100 mt-3">
+            <Row className=" align-items-center m-auto">
+              <div className="w-100 text-center p-4">
+                <input
+                  type="text"
+                  placeholder="Filter by company:"
+                  id="companyFilter"
+                  value={countryFilter}
+                  onChange={handleCompanyFilterChange}
+                />
 
-            <input
-              type="text"
-              placeholder="Filter by price:"
-              id="priceFilter"
-              value={priceFilter}
-              onChange={handlePriceFilterChange}
-            />
-          </div>
-          {countryFilter.length !== 0 ? (
-            <PackageCard data={filteredPackagesCountry} />
-          ) : (
-            <PackageCard data={filteredPackagesPrice} />
-          )}
-        </Row>
-      </Container>
-    </section>
+                <input
+                  type="text"
+                  placeholder="Filter by price:"
+                  id="priceFilter"
+                  value={priceFilter}
+                  onChange={handlePriceFilterChange}
+                />
+              </div>
+              {countryFilter.length !== 0 ? (
+                <PackageCard data={filteredPackagesCountry} />
+              ) : (
+                <PackageCard data={filteredPackagesPrice} />
+              )}
+            </Row>
+          </Container>
+        </section>
+      )}
+    </>
   );
 }
