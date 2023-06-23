@@ -9,6 +9,7 @@ import { NavDropdown } from "react-bootstrap";
 import { Avatar } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function NavbarApp() {
   const username = JSON.parse(sessionStorage.getItem("username"));
@@ -17,6 +18,9 @@ function NavbarApp() {
   const navigate = useNavigate();
 
   let getUserDataInSession = JSON.parse(sessionStorage.getItem("userData"));
+  useEffect(() => {
+    getUserDataInSession = JSON.parse(sessionStorage.getItem("userData"));
+  }, [getUserDataInSession]);
 
   const logoutHandler = () => {
     sessionStorage.clear();

@@ -1,18 +1,15 @@
 import axios from "axios";
-import React, { useState } from "react";
-import {
-  Button,
-  Col,
-  Container,
-  Form,
-  Row,
-  ToastContainer,
-} from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 export default function Profile() {
-  const userData = JSON.parse(sessionStorage.getItem("userData"));
-  console.log(userData);
+  let userData = JSON.parse(sessionStorage.getItem("userData"));
+  useEffect(() => {
+    userData = JSON.parse(sessionStorage.getItem("userData"));
+  }, [userData]);
+
   const [email, setEmail] = useState(userData.email);
   const [id, setId] = useState(userData.id);
   const [firstName, setFirstName] = useState(userData.firstName);
@@ -28,10 +25,10 @@ export default function Profile() {
     reader.readAsDataURL(file);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    axios
-      .patch(
+    try {
+      const response = await axios.patch(
         `https://json-server-dbsaffarna.onrender.com/users/${userData.id}`,
         {
           firstName,
@@ -40,16 +37,20 @@ export default function Profile() {
           email,
           profileImg,
         }
-      )
-      .then((response) => {
-        console.log(response);
-        sessionStorage.setItem("userData", JSON.stringify(response.data));
-        toast.success("updated  successfuly");
-      })
-      .catch((error) => {
-        toast.error("error", error);
-        console.log(error);
-      });
+      );
+      console.log(response);
+      const updatedUserData = response.data;
+      sessionStorage.setItem("userData", JSON.stringify(updatedUserData));
+      setEmail(updatedUserData.email);
+      setId(updatedUserData.id);
+      setFirstName(updatedUserData.firstName);
+      setLastName(updatedUserData.lastName);
+      setProfileImg(updatedUserData.profileImage);
+      toast.success("updated successfuly");
+    } catch (error) {
+      toast.error("error", error);
+      console.log(error);
+    }
   };
 
   return (
