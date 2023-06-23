@@ -17,7 +17,16 @@ export default function Profile() {
   const [id, setId] = useState(userData.id);
   const [firstName, setFirstName] = useState(userData.firstName);
   const [lastName, setLastName] = useState(userData.lastName);
-  const [profileImg, setProfileImg] = useState(userData.profileImg);
+  const [profileImg, setProfileImg] = useState(userData.profileImage);
+
+  const handleFileInputChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setProfileImg(event.target.result);
+    };
+    reader.readAsDataURL(file);
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -115,13 +124,7 @@ export default function Profile() {
                   URL image :
                 </Form.Label>
                 <Col sm="10">
-                  <Form.Control
-                    value={profileImg}
-                    onChange={(e) => {
-                      setProfileImg(e.target.value);
-                    }}
-                    type="text"
-                  />
+                  <Form.Control type="file" onChange={handleFileInputChange} />
                 </Col>
               </Form.Group>
               <Button className="d-block m-auto mb-4" type="submit">
