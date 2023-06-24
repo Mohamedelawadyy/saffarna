@@ -18,6 +18,9 @@
   border: 1px solid var(--primary-color);
 }
 @media (max-width: 767px) {
+  .carousel-item img {
+    height: 260px;
+  }
   .carousel h3,
   .carousel h1,
   .carousel p {
