@@ -94,7 +94,7 @@ export default function PackageCard({ data }) {
           data-aos-duration="4500"
           style={{
             width: "98%",
-            height: "35rem",
+            height: "28rem",
             marginBottom: "10px",
             marginLeft: "auto",
             marginRight: "auto",
@@ -111,11 +111,15 @@ export default function PackageCard({ data }) {
             placeholderSrc={"https://via.placeholder.com/600/"}
             src={item.image}
             placeholderStyle={{ width: "100%", height: "100" }}
+            className="card-image"
           />
           <Card.Body>
             <Card.Title>{item.country}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">
-              Description : {item.description}
+            <Card.Subtitle className={`mb-2 text-muted description`}>
+              <b>Description:</b>{" "}
+              {item.description.length > 100
+                ? item.description.substring(0, 100) + "..."
+                : item.description}
             </Card.Subtitle>
             <Card.Text className="fw-bold">
               Days: {item.days} , Nights : {item.nights}

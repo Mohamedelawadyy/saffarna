@@ -38,3 +38,13 @@ section.packages button:hover {
   border: 1px solid var(--primary-color);
   opacity: 0.8;
 }
+section.packages .card-image {
+  height: 9em;
+}
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
